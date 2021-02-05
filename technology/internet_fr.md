@@ -1,37 +1,37 @@
-# How the Internet works
+# Comment l'Internet fonctionne
 
-Ever wondered how the Internet works ? Here's a simplified explanation.
+Tu t'es déjà demandé comment fonctionne l'Internet ? Voici une explication simplifié.
 
-## Text is a series of numbers
+## Le texte n'est qu'une suite de nombres
 
-Every letter has an associated number. Enter [ASCII](https://en.wikipedia.org/wiki/ASCII), where a space is 32 and capital A is 65. Capital B is 66, C 67 and so forth.
+Chaque lettre a un nombe associé. Bonjour l' [ASCII](https://fr.wikipedia.org/wiki/American_Standard_Code_for_Information_Interchange), où un éspace est 32 et A majuscule 65. Majuscule B est 66, C 67 etc.
 
-Why is A 65 and not 88 for example ? The people who created ASCII chose it that way, that's it. ASCII is in fact an association table. You can create your own. No one will use it, but you can. The reason to use ASCII is that everyone else is using it. So the number 65 will be transformed into the letter A on your computer and on mine. If we don't agree which number represents what letter, we will not be able to send each other text. 
+Pourquoi A vaut 65 et pas 88 par exemple ? Les créateurs d'ASCII en ont choisi ainsi, tout simplement. ASCII est en fait une grille d'associations. Tu peux en créer une. Personne va l'utiliser, mais tu peux. La raison d'utiliser ASCII est que tout le monde l'utilise. Ainsi le nombre 65 est transformé en lettre A sur ton ordinateur et le mien  mine. Si on ne se met pas d'accord quelle nombre resprésente quelle lettre, on ne va pas pouvoir s'échanger du texte. 
 
-ASCII LOVE is (76, 79, 86, 69).
+ASCII LOVE c'est (76, 79, 86, 69).
 
-There are other encodings. utf-8, latin-1 etc that can handle accents and other set of letters.
+Il y a d'autres encodages. utf-8, latin-1 etc qui peuvent gérer les accents et autres alphabets.
 
-So text is just a series of numbers.
-You probably know that computers internaly use binary numbers. A computer cannot directly understand A (65).
+Donc le texte n'est qu'une suite de nombres.
+Tu sais problament que les ordinateurs utilisent les nombres binaires en interne. Un ordinateur ne peut pas directement comprendre A (65).
 
 
-### Numbers are binary
+### Les nombres sont binaires
 
-Most humans use base 10 for their numerical system, it comes from the fact that we have 10 fingers and makes counting easy. Base 10 means there are 10 different symbols 0-9, 0 included. Binary is a number system with base 2. There are 2 different symbols: 0 and 1. Every decimal (base 10) number can be converted to a binary (base 2) number representation. For example 
+La plupart des humains utilisent la base 10 pour leur systême numérique, cela vient du fait qu'on a 10 doigts, et c'est facile de compter jusqu'à dix. Base 10, ça veut dire qu'il y a 10 symboles différents 0-6, en incluant le 0. Le binaire est un systême numérique de base 2. Il y a 2 symboles: 0 et 1. Chaque décimal (base 10) peut être convértit en sa représentation binaire (base 2) Par exemple
  
- * decimal 1024 is binary 10000000000
- * decimal 1025 is binary 10000000001
- * decimal 1026 is binary 10000000010
- * decimal 1027 is binary 10000000011
+ * décimal 1024 est binaire 10000000000
+ * décimal 1025 est binaire 10000000001
+ * décimal 1026 est binaire 10000000010
+ * décimal 1027 est binaire 10000000011
 
-To understand how to write a number in binary, let us consider an alternative way to write 1024 in decimal. (x power of 0 is 1.)
+Pour comprendre comment écrire un nombre en binaire, essayons une manière alternative d'écrire 1024 en décimal. (x puissance 0 est 1)
 
  * `1027 = (1000) + (0) + (20) + (7)`
  * `1027 = (1 * 10**3) + (0 * 10**2) + (2 * 10**1) + (7 * 10**0)`
  * `1027 = (1 * 10**3) + (2 * 10**1) + (7 * 10**0)`
 
-Any number in decimal can be written as a sum like this. Now using the same method, but we replace base 10 with base 2
+N'importe quel nombre en décimal peut s'écrire en tant que somme comme ça. En utilisant la même méthode, mais cette fois-ci avec la base 2
 
  * `111 = (100) + (10) + (1)`
  * `111 = (1 * 2**2) + (1 * 2**1) + (1 * 2**0)`
@@ -40,40 +40,38 @@ Any number in decimal can be written as a sum like this. Now using the same meth
  * `111 = 7`
  
 
-Another example (1027):
+Un autre exemple (1027):
  
  * `10000000011 = (10000000000) + (0) + (0) + (0) + (0) + (0) + (0) + (0) + (0) + (10) + (1)`
  * `10000000011 = (1 * 2**10) + (0 * 2**9) + (0 * 2**8) + (0 * 2**7) + (0 * 2**6) + (0 * 2**5) + (0 * 2**4) + (0 * 2**3) + (0 * 2**2) + (1 * 2**1) + (1 * 2**0)`
  * `10000000011 = (1 * 2**10) + (1 * 2**1) + (1 * 2**0)`
  * `10000000011 = (1024) + (2) + (1)`
 
-We can convert a letter into a number with an association table. We can convert a decimal number into binary number. Which means we can go from letter to binary. 1000001 is Binary for letter A.
+On peut convertir une lettre en nombre  avec une grille d'associations. On peut convertire un nombre décimal en binaire. On peut donc aller de lettre à binaire. 1000001 est binaire pour la lettre A.
 
-A bit is a single 0 or 1.
+Un bit est un 0 ou 1 singulier.
 
-A byte is 8 bits.
+Un octet est composé de 8 bits.
 
-But how to send a number ? It is an abstraction. They do not exist in the physical world. How do computers send each other numbers ?
+Mais comment envoyer un nombre ? C'est une abstraction. Ca n'existe pas dans le monde physique. Comment les ordinateurs s'échangent des nombres ?
 
+## Le binaire c'est du voltage
 
-## Binary are voltages
+Bonjour le monde physique, où l'on utilise l'éléctricité pour envoyer des nombres. Par exemple, un voltage élevé est 1 et un voltage bas est 0. Donc comment on envoie la lettre A (1000001) par exemple ?
 
-Enter the physical world, where we use electrcity to send numbers. For example high voltage is 1 and low voltage is 0. So how do we send the letter A (1000001) for example ?
+ - 1 Haut
+ - 0 Bas
+ - 0 Bas
+ - 0 Bas
+ - 0 Bas
+ - 0 Bas
+ - 1 Haut
 
- - 1 High
- - 0 Low
- - 0 Low
- - 0 Low
- - 0 Low
- - 0 Low
- - 1 High
+Pendant comien de temps doit'on garder le courant éléctrique à haut voltage ? La durée est la période, qui doit être déterminé. Exemple: 1 seconde. Il faudrait 7 secondes pour envoyer la lettre A. Trop long. Rien que cette phrase prendrait 40 fois 7 secondes au moins. Une période de 1ms serait 1000 fois plus rapide. Mais il y a un minimum pour la période. Plus la période est courte, plus il faut du matériel précis.
 
-How long should we keep the electric current on high voltage ? This duration is the period. It needs to be agreed upon. Example: 1 second.
-It would take 7 seconds to send the letter A. That would be a long time. This sentence alone would take 40 * 7 seconds at least. A period of 1ms would be 1000 times faster. But there is a limit on how low the period can be. The smaller it is, the more precise the hardware has to be.
+Que doit faire l'ordinateur quand rien n'a encore été envoyé ? Le voltage sera bas et l'ordinateur pourrait croire qu'il recoit des zéros. C'est pourquoi il y a une phase de synchronisation: Comme 0101010101 suivi par 25 uns et ensuite le vrai message commence. Sans cela (111) pourrait être interprété comme (011, 100) décalage de 1.
 
-What should the computer do when there is nothing sent ? The voltage will be low and the computer could think it receives 0s. That is why there is a synchronization phase: Like 0101010101 followed by 25 1s and then the real message begins. Without this (111) could be interpreted as (011, 100) shift by 1.
-
-Where do we sent the bits ?
+Et, on envoie où les bits ?
 
 
 ## Internet Protocol
