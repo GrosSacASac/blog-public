@@ -94,14 +94,13 @@ IP 6 addresses fixes the issues of IPv4 with orders of magnitude more addresses.
 
 ### Send protocol
 
-In addition to defining what an address is, IP also defines how to send a message. An IP message should contain
+An IP message must contain
 
  - target address
  - source address
  - message
  - time to live (ttl)
  - total length
- - and a few others
 
 Source address is required so that the target can know where to send the response. If I open https://en.wikipedia.org the wikipedia computers need to know my address in order to send me the homepage back.
 
@@ -127,11 +126,11 @@ If yes then
     Send it to the matching physical connection
 ```
 
-For example: A switch has range tables that for ips that start with 000 to 200: send to the next switch located south, 201 to 999 send it to the switch located north. Then that switch knows that for ips from 200 - 500 send it further north, and for 501 to 999 send it east.
+For example: A switch has range tables that for IP addresses that start with 000 to 200: send to the next switch located south, 201 to 999 send it to the switch located north. Then that switch knows that for IP addresses from 200 - 500 send it further north, and for 501 to 999 send it east.
 
-The reason the message is dropped when time to live is 0, is to prevent situation where a message moves around in circles forever, in case of routing table missconfiguration. Historically time to live was measured in seconds, nut now it is measured in "hops", it was renamed to hop limit with IPv6.
+The reason the message is dropped when time to live is 0, is to prevent situation where a message moves around in circles forever, in case of routing table missconfiguration. Historically time to live was measured in seconds, but now it is measured in "hops", it was renamed to hop limit in IPv6.
 
-Once a message is received, The server can send a response back to the source address.
+Once a message is received, the server can send a response back to the source address.
 
 ## Transmission Control Protocol
 
@@ -145,7 +144,7 @@ Using TCP brings the following benefits:
 
 The way it works is that the both ends of the connection maintain a connection state. Both computer store the information about the number of the last message that is received. And when a message is received they send that number back as an acknowledgement. If for example you have sent message number 10 and 11 and receive acknowledgements about 8, it means that 9 was never received. So it is sent again.
 
-Since message are numbered, they can be ordered. Remember that the IP protocol does not guarantee that first message sent is first message received.
+Since messages are numbered, they can be ordered. The IP protocol does not guarantee that first message sent is first message received.
 
 TCP messages contain a checksum, which can be calculated by receiving party. If the checksum in the message does not match the calculated checksum, then it means that some bytes were changed. The message is not acknowledged and eventually the message will be resent
 
@@ -190,7 +189,7 @@ And the server could have responded (if it does not handle audio)
 
  - 406 Not Acceptable
 
-That 406 is a HTTP status code, those in the 200s inidicate that everything is Ok, and those in the 400s are usually errors. Some examples:
+That 406 is a HTTP status code, those in the 200s indicate that everything is Ok, and those in the 400s are usually errors. Some examples:
 
  - 404 Not Found
  - 429 Too Many Requests
@@ -201,7 +200,7 @@ See [list of HTTP status codes](https://en.wikipedia.org/wiki/List_of_HTTP_statu
 The method indicates __why__ we are making the request, 3 of them :
 
  - GET as seen above means we want to view something
- - POST means we want to add something. For example after writing a comment we make a POST request
+ - POST means we want to add something, for example after writing a comment we make a POST request
  - DELETE means we want to delete something
 
 
