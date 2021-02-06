@@ -1,14 +1,14 @@
 # Comment Internet fonctionne
 
-Tu t'es déjà demandé comment fonctionne l'Internet ? Voici une explication simplifié.
+Tu t'es déjà demandé comment fonctionne l'Internet ? Voici une explication simplifiée.
 
 ## Le texte n'est qu'une suite de nombres
 
-Chaque lettre a un nombe associé. Bonjour l' [ASCII](https://fr.wikipedia.org/wiki/American_Standard_Code_for_Information_Interchange), où un éspace est 32 et A majuscule 65. Majuscule B est 66, C 67 etc.
+Chaque lettre a un nombe associé. Découvrez l'encodage [ASCII](https://fr.wikipedia.org/wiki/American_Standard_Code_for_Information_Interchange), où un espace est 32 et A majuscule 65. Majuscule B est 66, C 67 etc.
 
-Pourquoi A vaut 65 et pas 88 par exemple ? Les créateurs d'ASCII en ont choisi ainsi, tout simplement. ASCII est en fait une grille d'associations. Tu peux en créer une. Personne va l'utiliser, mais tu peux. La raison d'utiliser ASCII est que tout le monde l'utilise. Ainsi le nombre 65 est transformé en lettre A sur ton ordinateur et le mien  mine. Si on ne se met pas d'accord quelle nombre resprésente quelle lettre, on ne va pas pouvoir s'échanger du texte. 
+Pourquoi A vaut 65 et pas 88 par exemple ? Les créateurs d'ASCII en ont choisi ainsi, tout simplement. ASCII est en fait une grille d'associations. Tu peux en créer une. Personne va l'utiliser, mais tu peux. La raison d'utiliser ASCII est que tout le monde l'utilise. Ainsi le nombre 65 est transformé en lettre A sur ton ordinateur et le mien. Si on ne se met pas d'accord quelle nombre resprésente quelle lettre, on ne va pas pouvoir s'échanger du texte. 
 
-ASCII LOVE c'est (76, 79, 86, 69).
+Par exemple __LOVE__ en ASCII c'est (76, 79, 86, 69).
 
 Il y a d'autres encodages. utf-8, latin-1 etc qui peuvent gérer les accents et autres alphabets.
 
@@ -18,7 +18,7 @@ Tu sais problament que les ordinateurs utilisent les nombres binaires en interne
 
 ### Les nombres sont binaires
 
-La plupart des humains utilisent la base 10 pour leur systême numérique, cela vient du fait qu'on a 10 doigts, et c'est facile de compter jusqu'à dix. Base 10, ça veut dire qu'il y a 10 symboles différents 0-6, en incluant le 0. Le binaire est un systême numérique de base 2. Il y a 2 symboles: 0 et 1. Chaque décimal (base 10) peut être convértit en sa représentation binaire (base 2) Par exemple
+La plupart des humains utilisent la base 10 pour leur système numérique, cela vient du fait qu'on a 10 doigts, et c'est facile de compter jusqu'à dix. Base 10, ça veut dire qu'il y a 10 symboles différents 0-6, en incluant le 0. Le binaire est un système numérique de base 2. Il y a 2 symboles: 0 et 1. Chaque décimal (base 10) peut être convértit en sa représentation binaire (base 2) Par exemple
  
  * décimal 1024 est binaire 10000000000
  * décimal 1025 est binaire 10000000001
@@ -67,7 +67,7 @@ Bonjour le monde physique, où l'on utilise l'éléctricité pour envoyer des no
  - 0 Bas
  - 1 Haut
 
-Pendant comien de temps doit'on garder le courant éléctrique à haut voltage ? La durée est la période, qui doit être déterminé. Exemple: 1 seconde. Il faudrait 7 secondes pour envoyer la lettre A. Trop long. Rien que cette phrase prendrait 40 fois 7 secondes au moins. Une période de 1ms serait 1000 fois plus rapide. Mais il y a un minimum pour la période. Plus la période est courte, plus il faut du matériel précis.
+Pendant comien de temps doit-on garder le courant éléctrique à haut voltage ? La durée est la période, qui doit être déterminée. Exemple: 1 seconde. Il faudrait 7 secondes pour envoyer la lettre A. Trop long. Rien que cette phrase prendrait 40 fois 7 secondes au moins. Une période de 1ms serait 1000 fois plus rapide. Mais il y a un minimum pour la période. Plus la période est courte, plus il faut du matériel précis.
 
 Que doit faire l'ordinateur quand rien n'a encore été envoyé ? Le voltage sera bas et l'ordinateur pourrait croire qu'il recoit des zéros. C'est pourquoi il y a une phase de synchronisation: Comme 0101010101 suivi par 25 uns et ensuite le vrai message commence. Sans cela (111) pourrait être interprété comme (011, 100) décalage de 1.
 
@@ -108,7 +108,7 @@ On sait ce qu'il faut mettre dans un message IP. Comment l'envoyer à la bonne a
 
 ## Topologie Internet
 
-Entre l'ordinateur et les serveurs de wikipedia, il y a le routeur (la box wifi), le fournisseur d'accés Internet, une poigné de "switchs" et un autre routeur.
+Entre l'ordinateur et les serveurs de wikipedia, il y a le routeur (la box wifi), le fournisseur d'accés Internet, une poignée de "switchs" et un autre routeur.
 
 L'algorithme pour que le message arrive bien à destination est:
 
@@ -128,7 +128,7 @@ Si oui alors
 
 Par exemple: Un switch a un tableau avec des intervalles pour les adresses IP de 000 à 250: Envoyer au switch au sud, 201 à 999 envoyer au switch au nord. Ensuite ce switch la sait que pour les adresses IP 200 à 500 evnoyer plus au nord, et 501 à 999 envoyer à l'est.ast.
 
-Le message est abandonné quand le temps de vie est 0, pour éviter les situation ou un message tourne en boucles, en case de mauvaise configuration du tableau des switch. A l'origine le temps de vie était mesuré en secondes, mais maintenant il est mesuré en "sauts" et a été renommé hops limit dans IPv6.
+Le message est abandonné quand le temps de vie est 0, pour éviter les situation ou un message tourne en boucle, en case de mauvaise configuration du tableau des switch. A l'origine le temps de vie était mesuré en secondes, mais maintenant il est mesuré en "sauts" et a été renommé hops limit dans IPv6.
 
 Une fois le message reçu, le serveur peut répondre à l'adresse source.
 
@@ -136,10 +136,10 @@ Une fois le message reçu, le serveur peut répondre à l'adresse source.
 
 Aussi connu sous l'acronyme TCP, ce protocole repose sur IP. Les messages TCP sont à l'intérieur du corps du message IP.
 
-Utilisr le TCP ajoute les bénéfices suivants:
+Utiliser le TCP ajoute les bénéfices suivants:
 
- - Les messages perdus sont renvoyés (fiabilité)
- - Les messages sont renvoyés si des octets ont été changé par accident
+ - Les messages perdus sont renvoyés à nouveau (fiabilité)
+ - Les messages sont renvoyés si des octets ont été changés par accident
  - Les messages sont dans le bon ordre
 
 Les deux participants maintiennent en mémoire l'état de la connection, ils stockent le numéro du dernier message reçu. Et quand un message est reçu ils renvoient ce nombre en tant que confirmation. Si par exemple vous avez envoyé messages numéros 10 et 11 et que vous recevez la confirmation pour le 8, cela veut dire que le 9 n'a jamais été reçu. Donc il est renvoyé encore.
@@ -148,7 +148,7 @@ Vu que les messages sont numérotés, il peuvent être remis dans le bon ordre. 
 
 Les messages TCP contiennent une somme de contrôle, qui peut être calculé par le recevant. Si cette somme ne correspont pas à la somme calculé, alors ça veut dire que des octets ont été changés. Le message n'est pas confirmé, et après un certain temps le message va être renvoyé.
 
-TCP gére aussi la bande passante, l'envoyeur va envoyer plus de messages par seconde si le receveur en perd 0, et moins de messages par secondes si trop de messages doivent être renvoyés car ils étaient abandonné car la bande passante était insuffisante
+TCP gére aussi la bande passante, l'émetteur va envoyer plus de messages par seconde si le receveur en perd 0, et moins de messages par secondes si trop de messages doivent être renvoyés car ils étaient abandonné car la bande passante était insuffisante
 
 
 ## Protocole de transfert de l'hyper-texte
@@ -192,15 +192,15 @@ Et le serveur aurait pu répondre (S'il ne gére pas l'audio)
 Ce 406 est un code de statut HTTP, les codes dans les 200 indiquent que tout va bien, et ceux dans les 400 sont des erreurs. Quelques exemples:
 
  - 404 Pas trouvé
- - 429 Trop de requètes
+ - 429 Trop de requêtes
  - 409 Conflit !
 
 A vour la [liste des codes HTTP](https://fr.wikipedia.org/wiki/Liste_des_codes_HTTP)
 
-La méthdode indique le __pourquoi__ de la requète, en voici 3 :
+La méthdode indique le __pourquoi__ de la requête, en voici 3 :
 
  - GET vu ci-dessus indique que l'on veut voir quelque chose
- - POST veut dire qu'on veuille ajouter quelque chose, par exemple après avoir écrit un commentaire on fait une requète POST
+ - POST veut dire qu'on veuille ajouter quelque chose, par exemple après avoir écrit un commentaire on fait une requête POST
  - DELETE veut dire qu'on veut effacer quelque chose
 
 ## Internet ou Web ?

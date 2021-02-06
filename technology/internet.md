@@ -4,11 +4,11 @@ Ever wondered how the Internet works ? Here's a simplified explanation.
 
 ## Text is a series of numbers
 
-Every letter has an associated number. Enter [ASCII](https://en.wikipedia.org/wiki/ASCII), where a space is 32 and capital A is 65. Capital B is 66, C 67 and so forth.
+Every letter has an associated number. Discover the [ASCII](https://en.wikipedia.org/wiki/ASCII) encoding, where a space is 32 and capital A is 65. Capital B is 66, C 67 and so forth.
 
 Why is A 65 and not 88 for example ? The people who created ASCII chose it that way, that's it. ASCII is in fact an association table. You can create your own. No one will use it, but you can. The reason to use ASCII is that everyone else is using it. So the number 65 will be transformed into the letter A on your computer and on mine. If we don't agree which number represents what letter, we will not be able to send each other text. 
 
-ASCII LOVE is (76, 79, 86, 69).
+For example __LOVE__ in ASCII is (76, 79, 86, 69).
 
 There are other encodings. utf-8, latin-1 etc that can handle accents and other set of letters.
 
