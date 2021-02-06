@@ -13,11 +13,11 @@ It provides function, to write and read files, make http request etc.
 ## Fast IO
 
 One of the strength, is fast input-output. Streams of data is a built-in type in Node.js land.
-This makes it good for web servers that need to use Websocket or HTTP.
+This makes it good for web servers that need to use WebSocket or HTTP.
 
 ## Asynchronous by default
 
-Most function in Node.js are async by default. Which means reading from a file or a http request does not block the rest of the program.
+Most function in Node.js are asynchronous by default. Which means reading from a file or a http request does not block the rest of the program.
 
 ## People started writing cli apps with it
 
