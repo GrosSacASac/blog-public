@@ -1,5 +1,3 @@
-# Why is Node.js so popular
-
 ## Cross Platform
 
 Node.js just works on Windows and Linux.
@@ -26,9 +24,10 @@ Most function in Node.js are async by default. Which means reading from a file o
 And it is amazing! Remember Java ? With Node.js, just create a single JS file with a few lines of code and voilà , your cli app is ready.
 Just run `node mycli.js`. Oh it already ran in 0.1s.
 
- - surge to deploy any local HTML, CSS, JS file to a website
- - blog-engine-sac to create a website from markdown files
- - SVGO to optimize svg files
+ - [surge](https://surge.sh/) to deploy any local HTML, CSS, JS file to a website
+ - [blog-engine-sac](https://letz.social/blog/b/blog-engine-sac) to create a website from markdown files
+ - [SVGO](https://github.com/svg/svgo) to optimize svg files
+ - and thousands more
 
 ## NPM - A node package manager
 
@@ -41,7 +40,7 @@ Need to check if a string is an email ? [There's a package for that](https://www
 Need to parse markdown ? [There's a package for that](https://www.npmjs.com/search?q=parse%20markdown).
 Need a random image of a cat ? Yep ! [There's a package for that](https://www.npmjs.com/package/random-meow).
 
-Npm is so good for productivity, since all these packages can be used as builduings blocks for rapid software development.
+Npm is so good for productivity, since all these packages can be used as building blocks for rapid software development.
 
 ## Electron
 
