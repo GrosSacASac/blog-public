@@ -1,4 +1,4 @@
-# How the Internet works
+# How does the Internet work
 
 Ever wondered how the Internet works ? Here's a simplified explanation.
 

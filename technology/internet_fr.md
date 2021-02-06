@@ -1,4 +1,4 @@
-# Comment l'Internet fonctionne
+# Comment Internet fonctionne
 
 Tu t'es déjà demandé comment fonctionne l'Internet ? Voici une explication simplifié.
 
