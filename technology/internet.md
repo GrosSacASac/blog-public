@@ -4,7 +4,7 @@ Ever wondered how the Internet works ? Here's a simplified explanation.
 
 ## Text is a series of numbers
 
-Every letter has an associated number. Discover the [ASCII](https://en.wikipedia.org/wiki/ASCII) encoding, where a space is 32 and capital A is 65. Capital B is 66, C 67 and so forth.
+Every letter has an associated number. Discover the [ASCII](https://en.Wikipedia.org/wiki/ASCII) encoding, where a space is 32 and capital A is 65. Capital B is 66, C 67 and so forth.
 
 Why is A 65 and not 88 for example ? The people who created ASCII chose it that way, that's it. ASCII is in fact an association table. You can create your own. No one will use it, but you can. The reason to use ASCII is that everyone else is using it. So the number 65 will be transformed into the letter A on your computer and on mine. If we don't agree which number represents what letter, we will not be able to send each other text. 
 
@@ -13,7 +13,7 @@ For example __LOVE__ in ASCII is (76, 79, 86, 69).
 There are other encodings. utf-8, latin-1 etc that can handle accents and other set of letters.
 
 So text is just a series of numbers.
-You probably know that computers internaly use binary numbers. A computer cannot directly understand A (65).
+You probably know that computers internally use binary numbers. A computer cannot directly understand A (65).
 
 
 ### Numbers are binary
@@ -58,7 +58,7 @@ But how to send a number ? It is an abstraction. They do not exist in the physic
 
 ## Binary are voltages
 
-Enter the physical world, where we use electrcity to send numbers. For example high voltage is 1 and low voltage is 0. So how do we send the letter A (1000001) for example ?
+Enter the physical world, where we use electricity to send numbers. For example high voltage is 1 and low voltage is 0. So how do we send the letter A (1000001) for example ?
 
  - 1 High
  - 0 Low
@@ -102,13 +102,13 @@ An IP message must contain
  - time to live (ttl)
  - total length
 
-Source address is required so that the target can know where to send the response. If I open https://en.wikipedia.org the wikipedia computers need to know my address in order to send me the homepage back.
+Source address is required so that the target can know where to send the response. If I open https://en.wikipedia.org the Wikipedia computers need to know my address in order to send me the homepage back.
 
 We now know what to put inside an IP message. How do we send it to correct address ?
 
 ## Internet topology
 
-In between the device and the servers of wikipedia, there is the router (aka wifi box) the Internet service provider, and a handfull of switches, and another router.
+In between the device and the servers of Wikipedia, there is the router (aka WIFI box) the Internet service provider, and a handful of switches, and another router.
 
 The algorithm to make sure the message arrives at destination is as follows:
 
@@ -128,7 +128,7 @@ If yes then
 
 For example: A switch has range tables that for IP addresses that start with 000 to 200: send to the next switch located south, 201 to 999 send it to the switch located north. Then that switch knows that for IP addresses from 200 - 500 send it further north, and for 501 to 999 send it east.
 
-The reason the message is dropped when time to live is 0, is to prevent situation where a message moves around in circles forever, in case of routing table missconfiguration. Historically time to live was measured in seconds, but now it is measured in "hops", it was renamed to hop limit in IPv6.
+The reason the message is dropped when time to live is 0, is to prevent situation where a message moves around in circles forever, in case of routing table misconfiguration. Historically time to live was measured in seconds, but now it is measured in "hops", it was renamed to hop limit in IPv6.
 
 Once a message is received, the server can send a response back to the source address.
 
@@ -148,7 +148,7 @@ Since messages are numbered, they can be ordered. The IP protocol does not guara
 
 TCP messages contain a checksum, which can be calculated by receiving party. If the checksum in the message does not match the calculated checksum, then it means that some bytes were changed. The message is not acknowledged and eventually the message will be resent
 
-TCP aslo handles transmission speed, the sender will send more messages per second if the receiver drops 0 messages, and less messages per second if too many messages need to be resent because they were dropped because the bandwidth was insufficient.
+TCP also handles transmission speed, the sender will send more messages per second if the receiver drops 0 messages, and less messages per second if too many messages need to be resent because they were dropped because the bandwidth was insufficient.
 
 ## Hypertext Transfer Protocol
 
@@ -163,17 +163,17 @@ HTTP messages adds the following features:
  - Error messages
  - and more
 
-For example when opening the wikipedia homepage from a browser, the following HTTP headers (amongst others) are sent:
+For example when opening the Wikipedia homepage from a browser, the following HTTP headers (amongst others) are sent:
 
  - GET / 
  - Accept: text/html
  - Accept-Language: lb,pt;q=0.8
  - Accept-Encoding: gzip, deflate, br
 
-Which, for a computer that speaks HTTP means, Hey ! I want to __get__ the __homepage__ ( / is the homepage) and I would like the answer to be __text__, more specifically __text/html__ , and if possible in __Luxemburgish__ (lb) if you have it, othewise in __Portuguese__ (pt) if you have it. Oh and I can decode __gzip__ and more.
+Which, for a computer that speaks HTTP means, Hey ! I want to __get__ the __homepage__ ( / is the homepage) and I would like the answer to be __text__, more specifically __text/html__ , and if possible in __Luxemburgish__ (lb) if you have it, otherwise in __Portuguese__ (pt) if you have it. Oh and I can decode __gzip__ and more.
 
 
-And the wikipedia server sends me back what I want in HTTP 
+And the Wikipedia server sends me back what I want in HTTP 
 
  - 200 OK
  - Content-Language: lb
