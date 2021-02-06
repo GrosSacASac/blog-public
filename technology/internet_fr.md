@@ -106,7 +106,7 @@ L'adresse source est requise pour que la cible puisse savoir où envoyer la rép
 
 On sait ce qu'il faut mettre dans un message IP. Comment l'envoyer à la bonne adresse ?
 
-## Toplogie Internet
+## Topologie Internet
 
 Entre l'ordinateur et les serveurs de wikipedia, il y a le routeur (la box wifi), le fournisseur d'accés Internet, une poigné de "switchs" et un autre routeur.
 
