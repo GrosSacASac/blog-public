@@ -2,7 +2,7 @@
 
 ## Rules on the substance
 
-The comment must not reveal personal private informations.
+The comment must not reveal personal private information.
 
 ### Do not publish if the content of the comment is
 

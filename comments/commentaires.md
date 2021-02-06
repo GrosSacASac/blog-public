@@ -2,7 +2,7 @@
 
 ## Règles sur le fond
 
-Le commentaire ne doit pas divulguer des informations personelles privées.
+Le commentaire ne doit pas divulguer des informations personnelles privées.
 
 ### Ne pas publier si le contenu du commentaire est
 
@@ -46,11 +46,11 @@ L'auteur accepte de publier pour le domaine public https://creativecommons.org/p
 Les modérateurs peuvent, si une ou plusieurs règles n'ont pas été respectés
 
  * Supprimer le commentaire
- * Supprimer la partie problèmatique du commentaire
+ * Supprimer la partie problématique du commentaire
  * Cacher le commentaire
 
 ## Meta
 
 Les règles peuvent être changées à tout moment.
 
-Il n'y a pas de garantie du bon fonctionement.
+Il n'y a pas de garantie du bon fonctionnement.
