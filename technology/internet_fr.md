@@ -122,7 +122,7 @@ Si non alors
     Si oui alors
         Abandonner le message (SORTIE)
     Envoyer le message au prochain qui est plus proche (Etape 0)
-If oui alors
+Si oui alors
     Envoyer le message à la connection physique correspondante
 ```
 
