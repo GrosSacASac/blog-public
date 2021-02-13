@@ -1,6 +1,6 @@
-# Comment Internet fonctionne
+# Comment fonctionne Internet 
 
-Tu t'es déjà demandé comment fonctionne l'Internet ? Voici une explication simplifiée.
+Tu t'es déjà demandé comment fonctionne Internet ? Voici une explication simplifiée.
 
 ## Le texte n'est qu'une suite de nombres
 
@@ -69,7 +69,7 @@ Bonjour le monde physique, où l'on utilise l'électricité pour envoyer des nom
 
 Pendant combien de temps doit-on garder le courant électrique à haut voltage ? La durée est la période, qui doit être déterminée. Exemple: 1 seconde. Il faudrait 7 secondes pour envoyer la lettre A. Trop long. Rien que cette phrase prendrait 40 fois 7 secondes au moins. Une période de 1ms serait 1000 fois plus rapide. Mais il y a un minimum pour la période. Plus la période est courte, plus il faut du matériel précis.
 
-Que doit faire l'ordinateur quand rien n'a encore été envoyé ? Le voltage sera bas et l'ordinateur pourrait croire qu'il reçoit des zéros. C'est pourquoi il y a une phase de synchronisation: Comme 0101010101 suivi par 25 uns et ensuite le vrai message commence. Sans cela (111) pourrait être interprété comme (011, 100) décalage de 1.
+Que doit faire l'ordinateur quand rien n'a encore été envoyé ? Le voltage sera bas et l'ordinateur pourrait croire qu'il reçoit des zéros. C'est pourquoi il y a une phase de synchronisation: Comme 0101010101 suivi par 1111111111111111111111111 uns et ensuite le vrai message commence. Sans cela (111) pourrait être interprété comme (011, 100) décalage de 1.
 
 Et, on envoie où les bits ?
 
@@ -80,7 +80,7 @@ Comme dans la vrai vie, si tu veux envoyer un message, il faut déjà savoir à 
 
 Le protocole Internet défini une adresse comme une série de nombres. Chaque appareil connecté à Internet a une adresse IP. Un adresse IPv4 ressemble à ça: 180.160.299.88.
 
-Les messages IP ont une taille maximale, donc une grosse image ou vidéo, doit être réparti dans plusieurs messages.
+Les messages IP ont une taille maximale, donc une image de haute définition ou vidéo, doit être réparti dans plusieurs messages.
 
 ### IPv4
 
@@ -181,7 +181,7 @@ Et le serveur Wikipédia me réponds ce que je veux en HTTPP
  - Content-Encoding: gzip
  - CONTENU TEXTUEL APRES LES EN-TETES
 
-Et si on voulais de l'audio plutôt ? On aurais pu envoyer 
+Et si on voulait de l'audio plutôt ? On aurais pu envoyer 
 
  - Accept: audio/mpeg
 

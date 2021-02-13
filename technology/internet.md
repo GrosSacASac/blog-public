@@ -71,7 +71,7 @@ Enter the physical world, where we use electricity to send numbers. For example 
 How long should we keep the electric current on high voltage ? This duration is the period. It needs to be agreed upon. Example: 1 second.
 It would take 7 seconds to send the letter A. That would be a long time. This sentence alone would take 40 * 7 seconds at least. A period of 1ms would be 1000 times faster. But there is a limit on how low the period can be. The smaller it is, the more precise the hardware has to be.
 
-What should the computer do when there is nothing sent ? The voltage will be low and the computer could think it receives 0s. That is why there is a synchronization phase: Like 0101010101 followed by 25 1s and then the real message begins. Without this (111) could be interpreted as (011, 100) shift by 1.
+What should the computer do when there is nothing sent ? The voltage will be low and the computer could think it receives 0s. That is why there is a synchronization phase: Like 0101010101 followed by 1111111111111111111111111 and then the real message begins. Without this (111) could be interpreted as (011, 100) shift by 1.
 
 Where do we sent the bits ?
 
@@ -82,7 +82,7 @@ Like in the real world, if you want to send a message you need to know to whom. 
 
 The Internet protocol defines addresses as a series of numbers. Every device connected to the Internet has an IP address. An IPv4 address looks like this 180.160.299.88.
 
-IP messages have a maximum size, so a big image file or video, needs to be split in multiple messages.
+IP messages have a maximum size, so a high definition image or video, need to be split in multiple messages.
 
 ### IPv4
 
