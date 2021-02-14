@@ -97,6 +97,10 @@ Well there were several attempts to add such a feature to the web platform. And 
 
 Something that also slows this: There are people who argue that you don't actually need client side HTML includes, since you can do it on the server side. And while that is true, it does not considers the fact that thousands of web developers do it anyway using a 5-100KB JavaScript framework in the process.
 
+Also with client side includes, if combined with cache and HTTP/2 it may be more optimized than server side includes.
+
+[Can I use iframe seamless ?](https://caniuse.com/iframe-seamless) Nope. I don't know exactly why it was dropped, but in general `<iframe>` opened a lot of security issues in the past.
+
 
 ## The DOM
 
