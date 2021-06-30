@@ -17,7 +17,7 @@ Le commentaire ne doit pas divulguer des informations personnelles privées.
 
  * un contenu qui ne respecte pas les règles sur le fond ci-dessus
  * un contenu autre que ce que le texte autour du lien annonce
- * un contenu trompeur (scam, fishing, malware)
+ * un contenu trompeur (fraude, hameçonnage, logiciel malveillant)
 
 ## Règles sur la forme
 
