@@ -55,7 +55,7 @@ Un octet est composé de 8 bits.
 
 Mais comment envoyer un nombre ? C'est une abstraction. Ca n'existe pas dans le monde physique. Comment les ordinateurs s'échangent des nombres ?
 
-![Abstract_image](https://letz.social/wollek/sac/d/fichiers_blog/moibcolor2of2.jpg)
+![Abstractimage](https://letz.social/wollek/sac/d/fichiers_blog/moibcolor2of2.jpg)
 
 ## Le binaire c'est du voltage
 

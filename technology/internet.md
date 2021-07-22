@@ -55,7 +55,7 @@ A byte is 8 bits.
 
 But how to send a number ? It is an abstraction. They do not exist in the physical world. How do computers send each other numbers ?
 
-![Abstract_image](https://letz.social/wollek/sac/d/fichiers_blog/moibcolor2of2.jpg)
+![Abstractimage](https://letz.social/wollek/sac/d/fichiers_blog/moibcolor2of2.jpg)
 
 ## Binary are voltages
 
