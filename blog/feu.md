@@ -1,6 +1,6 @@
 # Le feu de Strasbourg
 
-Le 10 mars 2021 le feu a ravagé un lieu où reposait des serveur OVH à Strasbourg. Je loue un serveur qui se trouve par là.
+Le 10 mars 2021 le feu a ravagé un lieu où reposait des serveurs OVH à Strasbourg. Je loue un serveur qui se trouve par là.
 Donc ce blog, et les quelques applications web que j'avais étaient indisponible.
 
 Le 30 mars j'ai eu à nouveau accès à mon serveur. Heureusement il n'a pas brulé donc tout ce que j'avais à faire c'est relancer les applications. En fait le feu n'a pas atteint mon serveur que je loue.
