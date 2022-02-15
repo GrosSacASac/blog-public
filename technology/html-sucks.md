@@ -124,7 +124,7 @@ A `<form>` method can only be `GET` and `POST`. The number of people who know wh
 
 Imagine me circa 2015 learning REST and discovering that I have to redesign all my `DELETE` routes to also work with `POST`...
 
-Ideally I would use the HTTP methods GET, POST, PUT, DELETE, etc.. But now I need to make a choice. Make the form submit with JavaScript with the correct method, but now my site does not work without JS, or put the method name somewhere in the URL and make my server code ugly because I need to handle POST and read the URL to see the real method, and still handle direct DELETE request for server to server communications.
+Ideally I would use the HTTP methods GET, POST, PUT, DELETE, etc.. But now I need to make a choice. Make the form submit with JavaScript with the correct method, but now my site does not work without JS, or put the method name somewhere in the URL and make my server code ugly because I need to handle POST and read the URL to see the real method, and still handle direct DELETE request for server to server communications. Or put the method in a hidden input. And yes the server needs to parse and validate and use its value.
 
 ### Confusing appearance and controls
 
