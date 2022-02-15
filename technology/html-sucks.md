@@ -43,7 +43,7 @@ Wait, there is another ... now guess how to use the autocomplete attribute:
 </label>
 ```
 
-Ouch.
+Ouch. See the inconsistency ?
 
 To be fair, `autocomplete` is not really Boolean as it can take other values such as `email` `tel` etc.
 
@@ -104,7 +104,7 @@ Also with client side includes, if combined with cache and HTTP/2 it may be more
 
 ## The DOM
 
-The document object model is the way to programmatically expose the HTML document to programming languages. And the DOM API are ugly and badly designed. I believe this is the number 1 reason people hate JavaScript, even though JavaScript as a programming language can be used without the DOM and the DOM can be accessed without JavaScript.
+The document object model is the way to programmatically expose the HTML document to programming languages. And the DOM API are ugly and badly designed. I believe this is the number 1 reason people hate JavaScript, even though JavaScript as a programming language can be used without the DOM and the DOM can also be accessed without JavaScript (Java, Flash, Bighton, WASM).
 
 
 ## Historic artefacts
@@ -120,13 +120,24 @@ You have to use in every page for historic reasons
 
 ### Missing methods
 
-A `<form>` method can only be `GET` and `POST`. The number of people who know why is probably equal to the number of editors of the spec and they live in a cave.
+A `<form>` method can only be `GET` and `POST`. The number of people who know why is probably equal to the number of editors of the spec and they live in a cave (joke).
 
 Imagine me circa 2015 learning REST and discovering that I have to redesign all my `DELETE` routes to also work with `POST`...
+
+Ideally I would use the HTTP methods GET, POST, PUT, DELETE, etc.. But now I need to make a choice. Make the form submit with JavaScript with the correct method, but now my site does not work without JS, or put the method name somewhere in the URL and make my server code ugly because I need to handle POST and read the URL to see the real method, and still handle direct DELETE request for server to server communications.
 
 ### Confusing appearance and controls
 
 What is difference between a `<select>` and a group of  `<input type="radio">` ? It is the visual appearance. But they do the same. Which mean it should have been a CSS appearance instead.
+
+## No binary version
+
+No binary html version means it misses out on some compression. 
+
+Opera mini uses a version of binary html, that is sent by opera mini servers to reduce bandwidth.
+
+No binary means that inlining binary data like images inside html requires base64 encoding which takes extra data than the binary version
+
 
 ## Conclusion
 
