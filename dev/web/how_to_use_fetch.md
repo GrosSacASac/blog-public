@@ -26,6 +26,8 @@ Install node-fetch
 
 `npm i node-fetch`
 
+What I like to do is having the patch in a separate file.
+
 ### patch-fetch.js
 
 ```js
@@ -69,6 +71,10 @@ if (!globalThis.fetch) {
     globalThis.fetch = (await import(`node-fetch`)).default;
 }
 ```
+
+The import is inside the if statement, and it is a dynamic import.
+
+This requires top level await and dynamic imports, so I think it is usable only in Node 16
 
 ## With deno
 
