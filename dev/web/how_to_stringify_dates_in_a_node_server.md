@@ -61,7 +61,7 @@ if (!ISO6391.getName(request.freeLang)) {
 }
 ```
 
-Don't forget the __or expression__ otherwise request.lang might be undefined,
+Don't forget the __or expression__ otherwise `request.lang` might be `undefined`,
 the reason I use 2 different variables is to be able to use translate with a language I actually translated, but also display the date in another language or culture as well, for example translate in en but display the date in en-GB.
 
 I also use ISO6391 library to make sure that freeLang is not garbage, which can make Date.toLocaleDateString throw.
@@ -243,3 +243,21 @@ server.listen(PORT, () => {
     console.log(`listenting on ${PORT}`);
 });
 ```
+## Performance
+
+```js
+const formatReady = new Intl.DateTimeFormat(lang, options); // can be reused
+const stringDate = formatReady.format(date)
+```
+
+Preparing a formatReady variable like this might be more performant than using date.toLocaleString with the same lang and options multiple times. How much faster ?
+
+## Relative time
+
+There is a
+
+```js
+Intl.RelativeTimeFormat
+```
+
+Not used yet.
