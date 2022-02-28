@@ -25,7 +25,7 @@ A date can be stored with a number or a string
 let timeAsNumber = d.getTime();
 let timeAsString = d.toISOString();
 
-// Note there is shorthand to get the current time as number
+// Note that there is shorthand to get the current time as number
 let timeAsNumber = Date.now();
 // is equivalent to
 let date = new Date();
@@ -44,33 +44,202 @@ To display dates, the first requirement is to know in what language to display i
 
 ### From the URL
 
-Depending on how URL are made in the site, one can also obtain language from the URL. For apps and dynamically generated content I recommend to get it from the HTTP request
+Depending on how URLs are made in the site, one can also obtain language from the URL. For apps and dynamically generated content I recommend to get it from the HTTP request
 
 ### From the HTTP request
 
+```js
+import Accept from "@hapi/accept";
+import ISO6391 from 'iso-639-1-plus';
+import {langs, translate} from "./availableTranslations.js"; // example
+
+// ... later, on request
+request.lang = Accept.language(request.headers[`accept-language`], langs) || defaultLanguage;
+request.freeLang = Accept.language(request.headers[`accept-language`]);
+if (!ISO6391.getName(request.freeLang)) {
+    request.freeLang = request.lang;
+}
+```
+
+Don't forget the __or expression__ otherwise request.lang might be undefined,
+the reason I use 2 different variables is to be able to use translate with a language I actually translated, but also display the date in another language or culture as well, for example translate in en but display the date in en-GB.
+
+I also use ISO6391 library to make sure that freeLang is not garbage, which can make Date.toLocaleDateString throw.
+
+
 ## Stringify a date in a given language
 
-### `.totoLocaleDateString`
+### `.toLocaleString`
 
-### 
+By default displays the date and the time, highly customizable
+
+```js
+const dateOptions = {timeStyle:`short`, dateStyle: `short`};
+const timeString = date.toLocaleString(request.freeLang, dateOptions);
+```
+
+### `.toLocaleDateString`
+
+A shorthand for `.toLocaleString` with options to only show the date.
+
+```js
+date.toLocaleString("en" , {
+    year:  "2-digit" ,
+    month: "2-digit" ,
+    day:  "2-digit",
+}) === date.toLocaleDateString("en"); // true
+```
+
+### `.toLocaleTimeString`
+
+
+A shorthand for `.toLocaleString` with options to only show the time.
+
+```js
+
+date.toLocaleString("en" , {
+    hour:  "2-digit" ,
+    minute: "2-digit" ,
+    second:  "2-digit",
+}) === date.toLocaleTimeString("en"); // true
+```
+
 ### All options
 
+The first interface is a high level overview, and the second is more detailed. They cannot be mixed when in conflict (dateStyle and weekday for example).
+
+To not display seconds, use timeStyle short.
+
+To force something to not be displayed (for example the year in a date), use the detailed options instead and omit the part that should be hidden.
+
+
+
 ```ts
-    interface DateTimeFormatOptions {
-        localeMatcher?: "best fit" | "lookup" | undefined;
-        weekday?: "long" | "short" | "narrow" | undefined;
-        era?: "long" | "short" | "narrow" | undefined;
-        year?: "numeric" | "2-digit" | undefined;
-        month?: "numeric" | "2-digit" | "long" | "short" | "narrow" | undefined;
-        day?: "numeric" | "2-digit" | undefined;
-        hour?: "numeric" | "2-digit" | undefined;
-        minute?: "numeric" | "2-digit" | undefined;
-        second?: "numeric" | "2-digit" | undefined;
-        timeZoneName?: "long" | "short" | undefined;
-        formatMatcher?: "best fit" | "basic" | undefined;
-        hour12?: boolean | undefined;
-        timeZone?: string | undefined;
-    }
+interface DateTimeFormatOptions {
+    formatMatcher?: "basic" | "best fit" | "best fit" | undefined;
+    dateStyle?: "full" | "long" | "medium" | "short" | undefined;
+    timeStyle?: "full" | "long" | "medium" | "short" | undefined;
+    dayPeriod?: "narrow" | "short" | "long" | undefined;
+    fractionalSecondDigits?: 0 | 1 | 2 | 3 | undefined;
+}
+interface DateTimeFormatOptions {
+    localeMatcher?: "best fit" | "lookup" | undefined;
+    weekday?: "long" | "short" | "narrow" | undefined;
+    era?: "long" | "short" | "narrow" | undefined;
+    year?: "numeric" | "2-digit" | undefined;
+    month?: "numeric" | "2-digit" | "long" | "short" | "narrow" | undefined;
+    day?: "numeric" | "2-digit" | undefined;
+    hour?: "numeric" | "2-digit" | undefined;
+    minute?: "numeric" | "2-digit" | undefined;
+    second?: "numeric" | "2-digit" | undefined;
+    timeZoneName?: "long" | "short" | undefined;
+    formatMatcher?: "best fit" | "basic" | undefined;
+    hour12?: boolean | undefined;
+    timeZone?: string | undefined;
+}
 ```
 ## Inside HTML
+
+To render the date inside html use the time element. Use the `.toJSON` method to make the date machine readable as well.
+
+```js
+const timeHTML = `
+<time
+    datetime="${date.toJSON()}"
+>
+    ${date.toLocaleString(request.freeLang, dateOptions)}
+</time>`
+```
+
 ## Time zones
+
+This is something you cannot get from a simple HTTP request.
+
+Before you get it you can use the `timeZoneName` option with `"long"` or `timeStyle` with `"long"` to clearly indicate the time zone the time is displayed in and use the most relevant time zone.
+
+Once you know which time zone to use, for example by asking the user in his profile page, use the `timeZone` option inside `dateOptions`.
+
+## Recap example
+
+```js
+import http from "node:http";
+import ISO6391 from 'iso-639-1-plus';
+import Accept from "@hapi/accept";
+
+
+const defaultLang = `fr`;
+const langs = [`fr`, `en`, `pt`];
+const PORT = 8888;
+    
+const server = http.createServer((request, response) => {    
+    let date;
+    date = new Date();
+
+    // macro options
+    // const dateOptions = {
+    //     timeStyle:`long`,
+    //     dateStyle: `long`,
+    // };
+
+    // very detailed options
+    const dateOptions = {
+        // year: "long" // hidden because omitted
+        // month: "long" // hidden because omitted
+        weekday: `long`, // extra
+        day: `2-digit`,
+        hour:  "2-digit" ,
+        minute: "2-digit" ,
+    };
+
+    const timeOptions = {
+        timeZoneName: `short`,
+        second: "numeric", // only display seconds and minutes
+        minute: "2-digit",
+    };
+
+    // use for translations
+    request.lang = Accept.language(request.headers[`accept-language`], langs) || defaultLang;
+    request.freeLang = Accept.language(request.headers[`accept-language`]);
+    if (!ISO6391.getName(request.freeLang)) {
+        request.freeLang = request.lang;
+    }
+    
+    if (request.method === `GET`) {
+        response.end(`<!doctype html>
+            <meta charset="utf-8">
+        <h1>Time</h1>
+        <p>toLocaleString <br>
+            <time
+                datetime="${date.toJSON()}"
+            >
+                ${date.toLocaleString(request.freeLang, dateOptions)}
+            </time>
+        </p>
+        <p>toLocaleTimeString only display seconds and minutes<br>
+            <time
+                datetime="${date.toJSON()}"
+            >
+                ${date.toLocaleTimeString(request.freeLang, timeOptions)}
+            </time>
+        </p>
+        <p>toLocaleDateString <br>
+            <time
+                datetime="${date.toJSON()}"
+            >
+                ${date.toLocaleDateString(request.freeLang/*, use default options*/)}
+            </time>
+        </p>`);
+        return;
+    }
+    
+    response.setHeader(`Content-Type`, `text/plain; charset=utf-8`);
+    const error = `Method Not Allowed`;
+    response.writeHead(415);
+    response.end(error);
+});
+
+
+server.listen(PORT, () => {
+    console.log(`listenting on ${PORT}`);
+});
+```
