@@ -1,6 +1,6 @@
 # How to use fetch
 
-## With node 17.5.0
+## With node >=17.5.0
 
 Use the cli flag `--experimental-fetch` to have it as a global.
 
