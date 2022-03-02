@@ -23,7 +23,7 @@ A date can be stored with a number or a string
 
 ```js
 let timeAsNumber = d.getTime();
-let timeAsString = d.toISOString();
+let timeAsString = d.toJSON();
 
 // Note that there is shorthand to get the current time as number
 let timeAsNumber = Date.now();
@@ -50,7 +50,7 @@ Depending on how URLs are made in the site, one can also obtain language from th
 
 ```js
 import Accept from "@hapi/accept";
-import ISO6391 from 'iso-639-1-plus';
+import ISO6391 from "iso-639-1-plus";
 import {langs, translate} from "./availableTranslations.js"; // example
 
 // ... later, on request
@@ -159,11 +159,13 @@ Before you get it you can use the `timeZoneName` option with `"long"` or `timeSt
 
 Once you know which time zone to use, for example by asking the user in his profile page, use the `timeZone` option inside `dateOptions`.
 
+Or let the time be rendered on the client side, which will most likely have the wanted timezone and locale. To use the locale of the JS engine simply use `undefined` as first value. Make sure to have have a fallback in case JS is disabled.
+
 ## Recap example
 
 ```js
 import http from "node:http";
-import ISO6391 from 'iso-639-1-plus';
+import ISO6391 from "iso-639-1-plus";
 import Accept from "@hapi/accept";
 
 
@@ -222,6 +224,23 @@ const server = http.createServer((request, response) => {
                 ${date.toLocaleTimeString(request.freeLang, timeOptions)}
             </time>
         </p>
+        <p>toLocaleTimeString only display seconds and minutes<br>
+        with client side overwrite <br>
+            <time
+                datetime="${date.toJSON()}"
+                data-time
+            >
+                ${date.toLocaleTimeString(request.freeLang, timeOptions)}
+            </time>
+            <script type="module">
+            // add data-time where this should happen
+            document.querySelectorAll("time[data-time]").forEach(timeElement => {
+                const dateAsString = timeElement.getAttribute("datetime");
+                const date = new Date(dateAsString);
+                const localDate = date.toLocaleTimeString(undefined, ${JSON.stringify(timeOptions)})
+            });
+            </script>
+        </p>
         <p>toLocaleDateString <br>
             <time
                 datetime="${date.toJSON()}"
@@ -243,6 +262,9 @@ server.listen(PORT, () => {
     console.log(`listenting on ${PORT}`);
 });
 ```
+
+If you test it locally, there will most likely not be any difference between the client side and the server side `toLocaleTimeString`.
+
 ## Performance
 
 ```js
@@ -261,3 +283,8 @@ Intl.RelativeTimeFormat
 ```
 
 Not used yet.
+
+## Edits
+
+ * Thanks Special-Tie-3024 for giving the idea to render the date on the client side
+ * prefer toJSON over toISOString (they do the same)
