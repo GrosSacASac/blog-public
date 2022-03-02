@@ -1,2 +1,3 @@
 # blog-public
-Content for my blog
+
+Some content for my blog
