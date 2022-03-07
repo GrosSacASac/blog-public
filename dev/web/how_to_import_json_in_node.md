@@ -40,3 +40,16 @@ console.log(object);
 ```
 
 Note that the file path is resolved with the curent working directory here instead of relative to the js file.
+
+## How to import a text file
+
+Maybe in the future there will be assert text. But for, do the same as JSON without the parsing:
+
+
+```js
+import fsPromises from "node:fs/promises";
+
+const text = await fsPromises.readFile(`./example.txt`, `utf-8`);
+    
+console.log(text);
+```
