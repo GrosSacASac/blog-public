@@ -6,6 +6,17 @@ Node.js just works on Windows and Linux.
 
 Which means every experienced JavaScript developer can start with Node.js without too much difficulty. And JavaScript is the main programming language of the Web.
 
+JavaScript is
+
+ * Multi paradigm
+ * Access to low level features
+ * Access to high level APIs via NPM (see below)
+ * Fast startup time, invisible compilation
+
+## Distribuable
+
+Package a Node.js app into a .exe app with a simple command.
+
 ## More than a JavaScript engine
 
 It provides function, to write and read files, make http request etc.
@@ -32,6 +43,8 @@ Just run `node mycli.js`. Oh it already ran in 0.1s.
 ## NPM - A node package manager
 
 Publish any JavaScript file to the public registry with ease. Then reuse that file in every project with a simple npm install command.
+
+And install small and large libraries to draw images, send emails etc.
 
 And install cli apps written by others in a few seconds. [Eslint](https://eslint.org/) for example is used by a lot of companies, just check the sponsors.
 
