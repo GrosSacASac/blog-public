@@ -1,6 +1,6 @@
-## With node >=17.3.0 or deno
+## With node >=18.0.0 or deno
 
-Use the cli flag ` --experimental-json-modules` to have it as a global. Then use |||`assert` inside the import
+Use an import with `assert` inside the import
 
 ### app.js
 
@@ -17,11 +17,17 @@ console.log(object);
 }
 ```
 
-`node --experimental-json-modules app.js`
+`node app.js`
 
 or with deno
 
 `deno run app.js`
+
+## With node >=17.3.0
+
+Use the cli flag `--experimental-json-modules`.
+
+`node --experimental-json-modules app.js`
 
 ## With older version than 17.3.0
 
