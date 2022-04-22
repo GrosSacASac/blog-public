@@ -1,8 +1,8 @@
 # How to use fetch
 
-## With node >=17.5.0
+## With node >=18.0.0
 
-Use the cli flag `--experimental-fetch` to have it as a global.
+It is a global.
 
 ### app.js
 
@@ -17,6 +17,12 @@ fetch(`https://nodejs.org/en/blog/`).then(function (response) {
 .then(console.log)
 .catch(console.error);
 ```
+
+`node app.js`
+
+## With node >=17.5.0
+
+Use the cli flag `--experimental-fetch` to have it as a global.
 
 `node --experimental-fetch app.js`
 
