@@ -32,11 +32,11 @@ let date = new Date();
 let timeAsNumber = d.getTime();
 ```
 
-A like to store dates as numbers in my database for the following reasons:
+I like to store dates as numbers in my database for the following reasons:
 
- * A number takes around 4 bytes of storage, where a string takes around 20 bytes
- * Numbers are easier to sort than strings representing dates
- * Better performance when creating a date object from a number
+* A number takes around 4 bytes of storage, where a string takes around 20 bytes
+* Numbers are easier to sort than strings representing dates
+* Better performance when creating a date object from a number
 
 To display dates, the first requirement is to know in what language to display it.
 
@@ -66,7 +66,6 @@ the reason I use 2 different variables is to be able to use translate with a lan
 
 I also use ISO6391 library to make sure that freeLang is not garbage, which can make Date.toLocaleDateString throw.
 
-
 ## Stringify a date in a given language
 
 ### `.toLocaleString`
@@ -92,7 +91,6 @@ date.toLocaleString("en" , {
 
 ### `.toLocaleTimeString`
 
-
 A shorthand for `.toLocaleString` with options to only show the time.
 
 ```js
@@ -111,8 +109,6 @@ The first interface is a high level overview, and the second is more detailed. T
 To not display seconds, use timeStyle short.
 
 To force something to not be displayed (for example the year in a date), use the detailed options instead and omit the part that should be hidden.
-
-
 
 ```ts
 interface DateTimeFormatOptions {
@@ -138,6 +134,7 @@ interface DateTimeFormatOptions {
     timeZone?: string | undefined;
 }
 ```
+
 ## Inside HTML
 
 To render the date inside html use the time element. Use the `.toJSON` method to make the date machine readable as well.
@@ -159,7 +156,7 @@ Before you get it you can use the `timeZoneName` option with `"long"` or `timeSt
 
 Once you know which time zone to use, for example by asking the user in his profile page, use the `timeZone` option inside `dateOptions`.
 
-Or let the time be rendered on the client side, which will most likely have the wanted timezone and locale. To use the locale of the JS engine simply use `undefined` as first value. Make sure to have have a fallback in case JS is disabled.
+Or let the time be rendered on the client side, which will most likely have the wanted time zone and locale. To use the locale of the JS engine simply use `undefined` as first value. Make sure to have have a fall-back in case JS is disabled.
 
 ## Recap example
 
@@ -272,7 +269,7 @@ const formatReady = new Intl.DateTimeFormat(lang, options); // can be reused
 const stringDate = formatReady.format(date)
 ```
 
-Preparing a formatReady variable like this might be more performant than using date.toLocaleString with the same lang and options multiple times. How much faster ?
+Preparing a formatReady variable like this might be more performant than using date.toLocaleString with the same language and options multiple times. How much faster ?
 
 ## Relative time
 
@@ -286,5 +283,5 @@ Not used yet.
 
 ## Edits
 
- * Thanks Special-Tie-3024 for giving the idea to render the date on the client side
- * prefer toJSON over toISOString (they do the same)
+* Thanks Special-Tie-3024 for giving the idea to render the date on the client side
+* prefer toJSON over toISOString (they do the same)
