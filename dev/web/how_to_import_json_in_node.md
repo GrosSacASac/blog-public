@@ -49,8 +49,7 @@ Note that the file path is resolved with the curent working directory here inste
 
 ## How to import a text file
 
-Maybe in the future there will be assert text. But for, do the same as JSON without the parsing:
-
+Maybe in the future there will be assert text. But for now, do the same as JSON without the parsing:
 
 ```js
 import fsPromises from "node:fs/promises";
