@@ -33,8 +33,7 @@ Use the cli flag `--experimental-json-modules`.
 
 Another way is to use a top level await and open the file as text and use `JSON.parse`
 
-### app.js
-
+### app.js (old)
 
 ```js
 import fsPromises from "node:fs/promises";
