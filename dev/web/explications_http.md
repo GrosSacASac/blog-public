@@ -16,15 +16,31 @@ Utilisé pour permettre à d'autres sites de faire de requêtes CORS (Cross orig
 
 Si la page rendu d'un autre serveur essaye de faire une requête (coté client donc) sur votre serveur, il y aura une erreur sauf si votre serveur autorise cette requête via les bons en-têtes HTTP.
 
-Sauf pour les requêtes simples qui elles sont autorisés par défaut. Les requêtes simples sont les GET, HEAD, POST avec aucun en-tête HTTP custom et si POST alors le content type peut être seulement `application/x-www-form-urlencoded` ou `multipart/form-data` ou `text/plain` (ce que `<form>` envoie par défaut)
+Pour les requêtes simples il suffit d'ajouter un en-tête HTTP dans la réponse. Les requêtes simples sont les GET, HEAD, POST avec aucun en-tête HTTP custom et si POST alors le content type peut être seulement `application/x-www-form-urlencoded` ou `multipart/form-data` ou `text/plain` (ce que `<form>` envoie par défaut)
 
 Par exemple si vous voulez que le coté client de example.com puisse faire des requêtes à votre serveur alors ajoutez
 
 * `Access-Control-Allow-Origin: https://example.com`
-* `Access-Control-Allow-Methods: POST, GET, DELETE, PUT`
-* `Access-Control-Allow-Headers: Content-Type, Range`
 
-Access-Control-Allow-Methods et Access-Control-Allow-Headers étant optionnels et vous permet d'autoriser plus. Et il faut répondre aux requêtes `OPTIONS` avec ces en-têtes sur la même URL que les URL que vous autorisez.
+
+danse la réponse à ces requêtes.
+
+Par exemple en Node.js (si vous testez localhost:3000): 
+
+```js
+response.setHeader(`Access-Control-Allow-Origin`, `http://localhost:3000`);
+```
+
+
+Pour les requêtes non simples, le navigateur fera automatiquement une requête OPTION en PREFLIGHT sur la même URL que la resource demandé.  Et il faut répondre aux requêtes `OPTIONS` avec ces en-têtes sur la même URL que l' URL que vous autorisez.
+
+Il faudra alors répondre à cette requête qui utilise une méthode HTTP OPTION avec 
+
+* `Access-Control-Allow-Origin: https://example.com`
+* `Access-Control-Allow-Methods: POST, GET, DELETE, PUT`
+* `Access-Control-Allow-Headers: x-custom`
+
+Ne mettez que les méthodes effectivement attendus dans Access-Control-Allow-Methods, Access-Control-Allow-Headers est optionnel et vous permet d'autoriser plus.
 
 ## Content-Security-Policy
 
