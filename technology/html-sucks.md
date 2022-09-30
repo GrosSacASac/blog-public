@@ -126,7 +126,39 @@ Ideally I would use the HTTP methods GET, POST, PUT, DELETE, etc.. But now I nee
 
 What is difference between a `<select>` and a group of  `<input type="radio">` ? It is the visual appearance. But they do the same. Which mean it should have been a CSS appearance instead.
 
+### Hidden input or input hidden ?
 
+Do you know the difference between : hidden, readonly, disabled and type="hidden"
+
+```html
+<input type="hidden" name="a" value="a">
+```
+
+Visually hidden, sends value with form. Only usable with tag = input
+
+```html
+<input hidden name="a" value="a">
+```
+
+Same as above, but prefer the above version except for other inputs tags like select.
+
+```html
+<input disabled name="a" value="a">
+```
+
+Visually greyed out ,cannot be changed, does not sends value with form
+
+```html
+<input readonly name="a" value="a">
+```
+
+Cannot be changed, but visually clear and copiable, sends value with form
+
+```html
+<input value="a">
+```
+
+Normal input but nothing will be sent, because it lacks the name attribute
 
 ## No binary version
 
