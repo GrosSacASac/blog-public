@@ -14,7 +14,6 @@ Here's how to use spellcheck attribute
 
 Now guess how to use the Boolean `required` attribute.
 
-
 ```html
 <textarea required="required"></textarea>
 or use shorthand
@@ -101,11 +100,9 @@ Also with client side includes, if combined with cache and HTTP/2 it may be more
 
 [Can I use iframe seamless ?](https://caniuse.com/iframe-seamless) Nope. I don't know exactly why it was dropped, but in general `<iframe>` opened a lot of security issues in the past.
 
-
 ## The DOM
 
 The document object model is the way to programmatically expose the HTML document to programming languages. And the DOM API are ugly and badly designed. I believe this is the number 1 reason people hate JavaScript, even though JavaScript as a programming language can be used without the DOM and the DOM can also be accessed without JavaScript (Java, Flash, Bighton, WASM).
-
 
 ## Historic artefacts
 
@@ -114,7 +111,6 @@ You have to use in every page for historic reasons
 ```html
 <meta name="viewport" content="width=device-width">
 ```
-
 
 ## Forms
 
@@ -130,17 +126,18 @@ Ideally I would use the HTTP methods GET, POST, PUT, DELETE, etc.. But now I nee
 
 What is difference between a `<select>` and a group of  `<input type="radio">` ? It is the visual appearance. But they do the same. Which mean it should have been a CSS appearance instead.
 
+
+
 ## No binary version
 
-No binary html version means it misses out on some compression. 
+No binary html version means it misses out on some compression.
 
 Opera mini uses a version of binary html, that is sent by opera mini servers to reduce bandwidth.
 
 No binary means that inlining binary data like images inside html requires base64 encoding which takes extra data than the binary version
 
-
 ## Conclusion
 
-Write in the comments if you have more
+Write in the comments if you have more.
 
-
+HTML is still the best we have for many reasons : It is both human and machine readable, it is extensible with JavaScript and CSS, it is accessible with screen readers and more, it is lightweight, viewable on any modern device on the planet, and open standard which continues to evolve.
