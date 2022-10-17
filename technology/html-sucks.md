@@ -160,6 +160,10 @@ Cannot be changed, but visually clear and copiable, sends value with form
 
 Normal input but nothing will be sent, because it lacks the name attribute
 
+What about the inert attribute ? It is relatively new so I did not try yet , but here is what is written on MDN:
+
+> The HTMLElement property inert is a Boolean value that, when present, makes the browser "ignore" user input events for the element
+
 ## No binary version
 
 No binary html version means it misses out on some compression.
