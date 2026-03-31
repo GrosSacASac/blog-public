@@ -1,11 +1,11 @@
-## With node >=18.0.0 or deno
+## With node >=23.0.0 or deno
 
-Use an import with `assert` inside the import
+Use an import with `with` and type json
 
 ### app.js
 
 ```js
-import object from "./x.json" assert { type: "json" };
+import object from "./x.json" with { type: 'json' };;
 console.log(object);
 ```
 
@@ -17,11 +17,26 @@ console.log(object);
 }
 ```
 
+
+
 `node app.js`
 
 or with deno
 
 `deno run app.js`
+
+
+## With node >=18.0.0
+
+Use an import with `assert` inside the import
+
+### app.js
+
+```js
+import object from "./x.json" assert { type: "json" };
+console.log(object);
+```
+
 
 ## With node >=17.3.0
 
